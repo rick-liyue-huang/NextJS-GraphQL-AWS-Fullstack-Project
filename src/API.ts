@@ -2,16 +2,16 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export type CreatePostInput = {
-  id?: string | null;
-  title: string;
-};
-
 export type ModelPostConditionInput = {
   title?: ModelStringInput | null;
   and?: Array<ModelPostConditionInput | null> | null;
   or?: Array<ModelPostConditionInput | null> | null;
   not?: ModelPostConditionInput | null;
+};
+
+export type CreatePostInput = {
+  id?: string | null;
+  title: string;
 };
 
 export type ModelStringInput = {
