@@ -44,7 +44,10 @@ const SignUp = () => {
     }
   };
 
-  const handleClose = (event?: any) => {
+  const handleClose = (event?: any, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
     setOpen(false);
   };
 
