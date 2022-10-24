@@ -1,8 +1,9 @@
-import { Typography } from '@mui/material';
+import { Container } from '@mui/material';
 import { API } from 'aws-amplify';
 import type { NextPage } from 'next';
 import { useEffect, useState } from 'react';
 import { ListPostsQuery, Post } from '../API';
+import { PostPreview } from '../components/PostPreview';
 import { useUser } from '../context/AuthContext';
 import { listPosts } from '../graphql/queries';
 
@@ -30,7 +31,13 @@ const Home: NextPage = () => {
   console.log('user: ', user);
   console.log('Posts: ---', posts);
 
-  return <Typography variant="h1"> hello world</Typography>;
+  return (
+    <Container maxWidth="md">
+      {posts.map((post) => (
+        <PostPreview post={post} key={post.id} />
+      ))}
+    </Container>
+  );
 };
 
 // Get all the posts on the server-side

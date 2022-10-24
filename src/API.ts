@@ -2,16 +2,24 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export type ModelPostConditionInput = {
-  title?: ModelStringInput | null;
-  and?: Array<ModelPostConditionInput | null> | null;
-  or?: Array<ModelPostConditionInput | null> | null;
-  not?: ModelPostConditionInput | null;
-};
-
 export type CreatePostInput = {
   id?: string | null;
   title: string;
+  content: string;
+  image?: string | null;
+  upvote: number;
+  downvote: number;
+};
+
+export type ModelPostConditionInput = {
+  title?: ModelStringInput | null;
+  content?: ModelStringInput | null;
+  image?: ModelStringInput | null;
+  upvote?: ModelIntInput | null;
+  downvote?: ModelIntInput | null;
+  and?: Array<ModelPostConditionInput | null> | null;
+  or?: Array<ModelPostConditionInput | null> | null;
+  not?: ModelPostConditionInput | null;
 };
 
 export type ModelStringInput = {
@@ -53,11 +61,27 @@ export type ModelSizeInput = {
   between?: Array<number | null> | null;
 };
 
+export type ModelIntInput = {
+  ne?: number | null;
+  eq?: number | null;
+  le?: number | null;
+  lt?: number | null;
+  ge?: number | null;
+  gt?: number | null;
+  between?: Array<number | null> | null;
+  attributeExists?: boolean | null;
+  attributeType?: ModelAttributeTypes | null;
+};
+
 export type Post = {
   __typename: 'Post';
   id: string;
   title: string;
   comments?: ModelCommentConnection | null;
+  content: string;
+  image?: string | null;
+  upvote: number;
+  downvote: number;
   createdAt: string;
   updatedAt: string;
   owner?: string | null;
@@ -83,6 +107,10 @@ export type Comment = {
 export type UpdatePostInput = {
   id: string;
   title?: string | null;
+  content?: string | null;
+  image?: string | null;
+  upvote?: number | null;
+  downvote?: number | null;
 };
 
 export type DeletePostInput = {
@@ -132,6 +160,10 @@ export type DeleteCommentInput = {
 export type ModelPostFilterInput = {
   id?: ModelIDInput | null;
   title?: ModelStringInput | null;
+  content?: ModelStringInput | null;
+  image?: ModelStringInput | null;
+  upvote?: ModelIntInput | null;
+  downvote?: ModelIntInput | null;
   and?: Array<ModelPostFilterInput | null> | null;
   or?: Array<ModelPostFilterInput | null> | null;
   not?: ModelPostFilterInput | null;
@@ -155,6 +187,10 @@ export type ModelCommentFilterInput = {
 export type ModelSubscriptionPostFilterInput = {
   id?: ModelSubscriptionIDInput | null;
   title?: ModelSubscriptionStringInput | null;
+  content?: ModelSubscriptionStringInput | null;
+  image?: ModelSubscriptionStringInput | null;
+  upvote?: ModelSubscriptionIntInput | null;
+  downvote?: ModelSubscriptionIntInput | null;
   and?: Array<ModelSubscriptionPostFilterInput | null> | null;
   or?: Array<ModelSubscriptionPostFilterInput | null> | null;
 };
@@ -189,6 +225,18 @@ export type ModelSubscriptionStringInput = {
   notIn?: Array<string | null> | null;
 };
 
+export type ModelSubscriptionIntInput = {
+  ne?: number | null;
+  eq?: number | null;
+  le?: number | null;
+  lt?: number | null;
+  ge?: number | null;
+  gt?: number | null;
+  between?: Array<number | null> | null;
+  in?: Array<number | null> | null;
+  notIn?: Array<number | null> | null;
+};
+
 export type ModelSubscriptionCommentFilterInput = {
   id?: ModelSubscriptionIDInput | null;
   content?: ModelSubscriptionStringInput | null;
@@ -219,6 +267,10 @@ export type CreatePostMutation = {
       } | null>;
       nextToken?: string | null;
     } | null;
+    content: string;
+    image?: string | null;
+    upvote: number;
+    downvote: number;
     createdAt: string;
     updatedAt: string;
     owner?: string | null;
@@ -248,6 +300,10 @@ export type UpdatePostMutation = {
       } | null>;
       nextToken?: string | null;
     } | null;
+    content: string;
+    image?: string | null;
+    upvote: number;
+    downvote: number;
     createdAt: string;
     updatedAt: string;
     owner?: string | null;
@@ -277,6 +333,10 @@ export type DeletePostMutation = {
       } | null>;
       nextToken?: string | null;
     } | null;
+    content: string;
+    image?: string | null;
+    upvote: number;
+    downvote: number;
     createdAt: string;
     updatedAt: string;
     owner?: string | null;
@@ -300,6 +360,10 @@ export type CreateCommentMutation = {
         __typename: 'ModelCommentConnection';
         nextToken?: string | null;
       } | null;
+      content: string;
+      image?: string | null;
+      upvote: number;
+      downvote: number;
       createdAt: string;
       updatedAt: string;
       owner?: string | null;
@@ -329,6 +393,10 @@ export type UpdateCommentMutation = {
         __typename: 'ModelCommentConnection';
         nextToken?: string | null;
       } | null;
+      content: string;
+      image?: string | null;
+      upvote: number;
+      downvote: number;
       createdAt: string;
       updatedAt: string;
       owner?: string | null;
@@ -358,6 +426,10 @@ export type DeleteCommentMutation = {
         __typename: 'ModelCommentConnection';
         nextToken?: string | null;
       } | null;
+      content: string;
+      image?: string | null;
+      upvote: number;
+      downvote: number;
       createdAt: string;
       updatedAt: string;
       owner?: string | null;
@@ -392,6 +464,10 @@ export type GetPostQuery = {
       } | null>;
       nextToken?: string | null;
     } | null;
+    content: string;
+    image?: string | null;
+    upvote: number;
+    downvote: number;
     createdAt: string;
     updatedAt: string;
     owner?: string | null;
@@ -415,6 +491,10 @@ export type ListPostsQuery = {
         __typename: 'ModelCommentConnection';
         nextToken?: string | null;
       } | null;
+      content: string;
+      image?: string | null;
+      upvote: number;
+      downvote: number;
       createdAt: string;
       updatedAt: string;
       owner?: string | null;
@@ -439,6 +519,10 @@ export type GetCommentQuery = {
         __typename: 'ModelCommentConnection';
         nextToken?: string | null;
       } | null;
+      content: string;
+      image?: string | null;
+      upvote: number;
+      downvote: number;
       createdAt: string;
       updatedAt: string;
       owner?: string | null;
@@ -467,6 +551,10 @@ export type ListCommentsQuery = {
         __typename: 'Post';
         id: string;
         title: string;
+        content: string;
+        image?: string | null;
+        upvote: number;
+        downvote: number;
         createdAt: string;
         updatedAt: string;
         owner?: string | null;
@@ -504,6 +592,10 @@ export type OnCreatePostSubscription = {
       } | null>;
       nextToken?: string | null;
     } | null;
+    content: string;
+    image?: string | null;
+    upvote: number;
+    downvote: number;
     createdAt: string;
     updatedAt: string;
     owner?: string | null;
@@ -533,6 +625,10 @@ export type OnUpdatePostSubscription = {
       } | null>;
       nextToken?: string | null;
     } | null;
+    content: string;
+    image?: string | null;
+    upvote: number;
+    downvote: number;
     createdAt: string;
     updatedAt: string;
     owner?: string | null;
@@ -562,6 +658,10 @@ export type OnDeletePostSubscription = {
       } | null>;
       nextToken?: string | null;
     } | null;
+    content: string;
+    image?: string | null;
+    upvote: number;
+    downvote: number;
     createdAt: string;
     updatedAt: string;
     owner?: string | null;
@@ -585,6 +685,10 @@ export type OnCreateCommentSubscription = {
         __typename: 'ModelCommentConnection';
         nextToken?: string | null;
       } | null;
+      content: string;
+      image?: string | null;
+      upvote: number;
+      downvote: number;
       createdAt: string;
       updatedAt: string;
       owner?: string | null;
@@ -614,6 +718,10 @@ export type OnUpdateCommentSubscription = {
         __typename: 'ModelCommentConnection';
         nextToken?: string | null;
       } | null;
+      content: string;
+      image?: string | null;
+      upvote: number;
+      downvote: number;
       createdAt: string;
       updatedAt: string;
       owner?: string | null;
@@ -643,6 +751,10 @@ export type OnDeleteCommentSubscription = {
         __typename: 'ModelCommentConnection';
         nextToken?: string | null;
       } | null;
+      content: string;
+      image?: string | null;
+      upvote: number;
+      downvote: number;
       createdAt: string;
       updatedAt: string;
       owner?: string | null;

@@ -18,6 +18,10 @@ export const getPost = /* GraphQL */ `
         }
         nextToken
       }
+      content
+      image
+      upvote
+      downvote
       createdAt
       updatedAt
       owner
@@ -37,6 +41,10 @@ export const listPosts = /* GraphQL */ `
         comments {
           nextToken
         }
+        content
+        image
+        upvote
+        downvote
         createdAt
         updatedAt
         owner
@@ -55,6 +63,10 @@ export const getComment = /* GraphQL */ `
         comments {
           nextToken
         }
+        content
+        image
+        upvote
+        downvote
         createdAt
         updatedAt
         owner
@@ -79,6 +91,10 @@ export const listComments = /* GraphQL */ `
         post {
           id
           title
+          content
+          image
+          upvote
+          downvote
           createdAt
           updatedAt
           owner
