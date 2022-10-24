@@ -16,9 +16,11 @@
     "@emotion/styled": "latest",
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
+    "aws-amplify": "^4.3.39",
     "next": "12.3.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.38.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
