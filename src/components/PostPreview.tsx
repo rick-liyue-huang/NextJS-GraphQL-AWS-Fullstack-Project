@@ -54,6 +54,9 @@ export const PostPreview: React.FC<Props> = ({ post }) => {
             <Grid item>
               <Typography variant="h2">{post.title}</Typography>
             </Grid>
+            <Grid item style={{ maxHeight: 90 }}>
+              <Typography variant="body2">{post.content}</Typography>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
