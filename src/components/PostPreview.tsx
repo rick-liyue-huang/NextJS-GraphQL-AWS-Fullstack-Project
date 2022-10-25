@@ -1,6 +1,7 @@
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import { Grid, IconButton, Paper, Typography } from '@mui/material';
+import Image from 'next/image';
 import { Post } from '../API';
 
 interface Props {
@@ -57,6 +58,16 @@ export const PostPreview: React.FC<Props> = ({ post }) => {
             <Grid item style={{ maxHeight: 90 }}>
               <Typography variant="body2">{post.content}</Typography>
             </Grid>
+            {!post.image && (
+              <Grid item>
+                <Image
+                  src="/vercel.svg"
+                  height={300}
+                  width={300}
+                  layout="intrinsic"
+                />
+              </Grid>
+            )}
           </Grid>
         </Grid>
       </Grid>
