@@ -3,7 +3,6 @@ import { Auth } from 'aws-amplify';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useUser } from '../context/AuthContext';
 
 interface IFormInput {
   username: string;
@@ -13,7 +12,6 @@ interface IFormInput {
 const SignIp = () => {
   const [open, setOpen] = useState(false);
   const [signinError, setSigninError] = useState('');
-  const { user, setUser } = useUser();
   const router = useRouter();
 
   const {
@@ -25,12 +23,12 @@ const SignIp = () => {
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     console.log('submitted the form: ');
     console.log(data);
-    const amplifyUser = await Auth.signIn(data.username, data.password);
-    console.log('success sign in a user, ', amplifyUser);
-    if (amplifyUser) {
+    // console.log('success sign in a user, ', amplifyUser);
+    try {
+      await Auth.signIn(data.username, data.password);
       router.push('/');
-    } else {
-      throw new Error('some thing wrong with config signup');
+    } catch (err: any) {
+      setSigninError(err.message);
     }
   };
 

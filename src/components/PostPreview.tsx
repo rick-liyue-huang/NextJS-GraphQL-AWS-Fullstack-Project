@@ -3,6 +3,7 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import { Grid, IconButton, Paper, Typography } from '@mui/material';
 import Image from 'next/image';
 import { Post } from '../API';
+import { convertDateToElapsed } from '../lib/formatDatePost';
 
 interface Props {
   post: Post;
@@ -49,7 +50,8 @@ export const PostPreview: React.FC<Props> = ({ post }) => {
           <Grid container direction={'column'} alignItems="flex-start">
             <Grid item>
               <Typography variant="body1">
-                posted by <b>{post.owner}</b> at <b>{post.createdAt}</b>
+                posted by <b>{post.owner}</b> at{' '}
+                <b>{convertDateToElapsed(post.createdAt)} hours ago</b>
               </Typography>
             </Grid>
             <Grid item>

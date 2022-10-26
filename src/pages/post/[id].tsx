@@ -1,7 +1,10 @@
+import { Container } from '@mui/material';
 import { withSSRContext } from 'aws-amplify';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import React from 'react';
 import { GetPostQuery, ListPostsQuery, Post } from '../../API';
+import { CommentComponent } from '../../components/CommentComponent';
+import { PostPreview } from '../../components/PostPreview';
 import { getPost, listPosts } from '../../graphql/queries';
 
 interface Props {
@@ -11,7 +14,16 @@ interface Props {
 const IndividualPost: React.FC<Props> = ({ post }) => {
   console.log('post: ---', post);
 
-  return <div>IndividualPost</div>;
+  return (
+    <Container maxWidth="md">
+      <PostPreview post={post} />
+
+      {post.comments?.items.length &&
+        post.comments.items.map((comment) => (
+          <CommentComponent comment={comment} key={comment?.id} />
+        ))}
+    </Container>
+  );
 };
 
 /**
